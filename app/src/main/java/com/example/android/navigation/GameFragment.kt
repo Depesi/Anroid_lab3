@@ -100,11 +100,12 @@ class GameFragment : Fragment() {
                         binding.invalidateAll()
                     } else {
                         view.findNavController()
-                            .navigate(R.id.action_gameFragment_to_gameWonFragment)
+                            .navigate(GameFragmentDirections
+                                .actionGameFragmentToGameWonFragment(numQuestions, questionIndex))
                     }
                 } else {
-                    view.findNavController().
-                    navigate(R.id.action_gameFragment_to_gameOverFragment)
+                    view.findNavController()
+                        .navigate(GameFragmentDirections.actionGameFragmentToGameOverFragment())
                 }
             }
         }
@@ -129,3 +130,4 @@ class GameFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_android_trivia_question, questionIndex + 1, numQuestions)
     }
 }
+
